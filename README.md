@@ -1,4 +1,6 @@
-# Go (DarkSky)[https://darksky.net/] Client
+# Go Darksky Client
+
+[DarkSky](https://darksky.net/)
 
 Because it seemed like the internet needed another one... :D
 
