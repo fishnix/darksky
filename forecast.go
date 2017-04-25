@@ -12,8 +12,8 @@ import (
 
 const url string = "https://api.darksky.net/forecast"
 
-// ApiRequest contains all of the data for a request
-type ApiRequest struct {
+// APIRequest contains all of the data for a request
+type APIRequest struct {
 	Lat     string
 	Long    string
 	Key     string
@@ -119,7 +119,7 @@ type HourlyData struct {
 	WindSpeed           float64 `json:"windSpeed"`
 }
 
-// Hourly is the minute by minute forecast information
+// Minutely is the minute by minute forecast information
 type Minutely struct {
 	Icon    string         `json:"icon,omitempty"`
 	Summary string         `json:"string,omitempty"`

@@ -32,3 +32,5 @@ func main() {
 	}
 }
 ```
+
+[![GoDoc](https://godoc.org/github.com/fishnix/darksky?status.svg)](https://godoc.org/github.com/fishnix/darksky)
