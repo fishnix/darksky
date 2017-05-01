@@ -13,7 +13,7 @@ import (
 const url string = "https://api.darksky.net/forecast"
 
 // APIRequest contains all of the data for a request
-type APIRequest struct {
+type APIClient struct {
 	Lat     string
 	Long    string
 	Key     string
@@ -145,14 +145,14 @@ type AlertData struct {
 }
 
 // GetForecast calls the darksky API and responds with the forecast
-func GetForecast(req ApiRequest) (*Forecast, error) {
-	u := buildURL(req)
+func (c *APIClient) GetForecast() (*Forecast, error) {
+	u := buildURL(*c)
 	f, err := getResponse(u)
 	return f, err
 }
 
 // buildURL creates the API URL string for the request
-func buildURL(req ApiRequest) string {
+func buildURL(req APIClient) string {
 	var apiURL bytes.Buffer
 
 	apiURL.WriteString(url + "/")
@@ -179,8 +179,6 @@ func buildURL(req ApiRequest) string {
 
 // getResponse takes the URL and returns the parsed forecast
 func getResponse(u string) (*Forecast, error) {
-	log.Println("[INFO] fetching forecast from", u)
-
 	var forecast *Forecast
 	client := &http.Client{
 		Timeout: time.Second * 10,
